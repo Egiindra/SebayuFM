@@ -384,23 +384,93 @@ ul {
 }
 
 /* Social Media Feed Section */
-.social-grid {
+/* Modern Grid Layouts */
+.news-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: 1fr 1fr;
   gap: 25px;
   margin-top: 20px;
+}
+
+.news-content {
+  padding: 25px;
+}
+
+.news-date {
+  font-size: 0.85rem;
+  color: var(--primary);
+  font-weight: 600;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.news-content h3 {
+  font-size: 1.3rem;
+  margin-bottom: 12px;
+  color: var(--dark);
+}
+
+.news-content p {
+  font-size: 0.95rem;
+  color: var(--gray);
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.read-more {
+  display: inline-block;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--primary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.news-grid .news-card:last-child {
+  grid-column: span 2;
+}
+
+.news-grid .news-card:last-child .news-image {
+  height: 280px;
+}
+
+.news-grid .news-card:last-child .news-content {
+  padding: 30px;
+}
+
+.social-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 800px;
+  margin: 20px auto 0;
 }
 
 .social-card {
   display: flex;
   align-items: center;
   gap: 20px;
-  padding: 25px;
-  border-radius: 20px;
+  padding: 20px 30px;
+  border-radius: 25px;
   background: var(--white);
   box-shadow: var(--shadow);
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   border: 1px solid rgba(0, 0, 0, 0.05);
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .news-grid {
+    grid-template-columns: 1fr;
+  }
+  .news-grid .news-card:last-child {
+    grid-column: span 1;
+  }
+  .news-grid .news-card:last-child .news-image {
+    height: 240px;
+  }
 }
 
 .social-card:hover {
@@ -409,13 +479,13 @@ ul {
 }
 
 .social-icon {
-  width: 60px;
-  height: 60px;
-  border-radius: 15px;
+  width: 70px;
+  height: 70px;
+  border-radius: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.8rem;
+  font-size: 2.2rem;
   color: var(--white);
   flex-shrink: 0;
 }
@@ -440,14 +510,16 @@ ul {
 }
 
 .social-info h3 {
-  font-size: 1.2rem;
-  font-weight: 700;
+  font-size: 1.4rem;
+  font-weight: 800;
   margin-bottom: 2px;
+  color: var(--dark);
 }
 
 .social-info p {
-  font-size: 0.9rem;
+  font-size: 1rem;
   color: var(--gray);
+  font-weight: 500;
 }
 
 /* Modern Card Styles for News and Schedule */
@@ -486,9 +558,19 @@ ul {
   transition: all 0.5s ease;
 }
 
-.news-card:hover .news-image i {
-  transform: scale(0.8);
-  opacity: 0.2;
+.social-logo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  z-index: 1;
+  transition: all 0.5s ease;
+}
+
+.news-card:hover .news-image i,
+.news-card:hover .social-logo-img {
+  transform: scale(1.1);
+  opacity: 0.4;
 }
 
 .social-overlay {
@@ -1001,9 +1083,5 @@ ul {
   .btn-secondary {
     padding: 12px 25px;
     font-size: 1rem;
-  }
-
-  .news-grid {
-    grid-template-columns: 1fr;
   }
 }
