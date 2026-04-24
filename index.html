@@ -67,13 +67,35 @@
           <strong>94.0 MHz</strong>
         </p>
         <div class="streaming-btn">
-          <a
-            href="https://radio.garden/listen/sebayu-fm/1EZU4YYS?hl=id"
-            target="_blank"
-            class="btn-primary"
-          >
-            <i class="fas fa-play"></i> Dengarkan Sekarang
-          </a>
+          <button id="play-button" class="btn-primary">
+            <i class="fas fa-play"></i>
+            <span id="button-text">Dengarkan Sekarang</span>
+          </button>
+        </div>
+
+        <div
+          id="player-container"
+          class="player-container"
+          style="display: none"
+        >
+          <div class="player-header">
+            <span>Radio Garden Live - Sebayu FM</span>
+            <button id="close-player" class="close-btn">&times;</button>
+          </div>
+          <div class="iframe-wrapper">
+            <iframe
+              id="radio-iframe"
+              src=""
+              frameborder="0"
+              allow="autoplay"
+            ></iframe>
+          </div>
+          <div class="player-footer">
+            <p>
+              <i class="fas fa-info-circle"></i> Memutar langsung dari Radio
+              Garden
+            </p>
+          </div>
         </div>
       </div>
       <div class="hero-waves">
@@ -419,7 +441,10 @@
             <div class="gallery-item-modern">
               <div class="gallery-content">
                 <div class="gallery-image">
-                  <i class="fas fa-calendar-check"></i>
+                  <img
+                    src="assets/event kota tegal.jpeg"
+                    alt="Event Kota Tegal"
+                  />
                 </div>
                 <div class="gallery-info">
                   <span class="gallery-tag">Event</span>
@@ -443,12 +468,15 @@
             <div class="gallery-item-modern">
               <div class="gallery-content">
                 <div class="gallery-image">
-                  <i class="fas fa-camera-retro"></i>
+                  <img
+                    src="assets/kegiatan lapangan.jpeg"
+                    alt="Kegiatan Lapangan"
+                  />
                 </div>
                 <div class="gallery-info">
                   <span class="gallery-tag">Aksi</span>
                   <h3>Kegiatan Lapangan</h3>
-                  <p>Tim kreatif SebayuFM saat bertugas di luar studio.</p>
+                  <p>Siaran resmi di gedung DPR kota tegal.</p>
                 </div>
               </div>
             </div>

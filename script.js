@@ -78,6 +78,43 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
+  // Audio Player Logic with Iframe (Radio Garden)
+  const playBtn = document.getElementById("play-button");
+  const playerContainer = document.getElementById("player-container");
+  const radioIframe = document.getElementById("radio-iframe");
+  const closePlayer = document.getElementById("close-player");
+  const buttonText = document.getElementById("button-text");
+  const playIcon = playBtn.querySelector("i");
+
+  const radioGardenUrl = "https://radio.garden/listen/sebayu-fm/1EZU4YYS";
+
+  playBtn.addEventListener("click", function () {
+    if (playerContainer.style.display === "none") {
+      // Buka player
+      playerContainer.style.display = "block";
+      radioIframe.src = radioGardenUrl;
+      buttonText.textContent = "Menutup Player";
+      playIcon.classList.remove("fa-play");
+      playIcon.classList.add("fa-times");
+
+      // Scroll ke player agar terlihat
+      playerContainer.scrollIntoView({ behavior: "smooth", block: "center" });
+    } else {
+      hidePlayer();
+    }
+  });
+
+  closePlayer.addEventListener("click", hidePlayer);
+
+  function hidePlayer() {
+    playerContainer.style.display = "none";
+    radioIframe.src = ""; // Stop audio by clearing iframe
+    buttonText.textContent = "Dengarkan Sekarang";
+    playIcon.classList.remove("fa-times");
+    playIcon.classList.add("fa-play");
+  }
+
+  // Smooth Scroll for navigation links
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     anchor.addEventListener("click", function (e) {
       e.preventDefault();
